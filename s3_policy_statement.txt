@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1682226776496",
+    "Statement": [
+        {
+            "Sid": "Stmt1682226768393",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "LAMBDA_ROLE"
+            },
+            "Action": [
+                "s3:DeleteObject",
+                "s3:DeleteObjectVersion",
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:PutObject"
+            ],
+            "Resource": "BUCKET_ARN/*"
+        }
+    ]
+}
