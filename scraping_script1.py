@@ -113,18 +113,17 @@ def _persist_data(data_dict: list[dict]):
     logger.info(f"Data operations finished")
 
 
-def lambda_handler(event, context):
 
-    categories = ["national", "business", "sports", "world", "politics", "technology", "startup", "entertainment", "miscellaneous", "hatke", "science", "automobile"]
 
-    # create a full dictionary of news information from all categories
-    final_data = []
-    for cat in categories:
-        logger.info(f"Calling scrape function for category {cat}")
-        print("Hiii")
-        final_data.extend(_scrape_category(cat))
-        logger.info(f"Function call finished for category {cat}")
+categories = ["national", "business", "sports", "world", "politics", "technology", "startup", "entertainment", "miscellaneous", "hatke", "science", "automobile"]
 
-    _persist_data(final_data)
-    logger.info(f"Script finished")
+# create a full dictionary of news information from all categories
+final_data = []
+for cat in categories:
+    logger.info(f"Calling scrape function for category {cat}")
+    final_data.extend(_scrape_category(cat))
+    logger.info(f"Function call finished for category {cat}")
+
+_persist_data(final_data)
+logger.info(f"Script finished")
 
